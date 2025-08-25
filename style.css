@@ -42,12 +42,12 @@ h1 {
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* main container area beneath menu */
 main {
-    background: rgb(245, 238, 219);
+    background: rgba(107, 107, 108, 0.933);
     display: flex;
     margin-top: 20px;
 }
