@@ -26,16 +26,28 @@ $(function () {
     // ONLY CHANGE BELOW THIS POINT //
     //////////////////////////////////
 
-    // TODO 1 - Enable the Grid
-    // toggleGrid();
+     //TODO 1 - Enable the Grid
+     toggleGrid();
 
 
     // TODO 2 - Create Platforms
+createPlatform(150,650,130,20);
+createPlatform(115,520,150,20);
+createPlatform(320,430,3,50);
+createPlatform(385,350,130,20);
+createPlatform(605,440,50,30);
+createPlatform(970,440,130,20);
+createPlatform(990,320,130,20);
+createPlatform(1250,190,1,100);
+createPlatform(1350,220,130,20);
 
 
 
+    // TODO 3 - Create Collectable
+createCollectable("steve",193,605);
+createCollectable("kennedi",1015,395)
+createCollectable("max",1360,180)
 
-    // TODO 3 - Create Collectables
 
 
 
