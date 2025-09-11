@@ -1,10 +1,17 @@
 body {
+  
   margin: 0px;
 }
 
 canvas {
-  background-color: lightblue;
-  margin: 20px;
+ background-image: url("images/pelican.png");
+  margin: 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
+
 }
 
 img {

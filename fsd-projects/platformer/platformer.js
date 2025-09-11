@@ -27,32 +27,36 @@ $(function () {
     //////////////////////////////////
 
      //TODO 1 - Enable the Grid
-     toggleGrid();
+     //toggleGrid();
 
 
     // TODO 2 - Create Platforms
-createPlatform(150,650,130,20);
-createPlatform(115,520,150,20);
-createPlatform(320,430,3,50);
-createPlatform(385,350,130,20);
-createPlatform(605,440,50,30);
-createPlatform(970,440,130,20);
-createPlatform(990,320,130,20);
-createPlatform(1250,190,1,100);
-createPlatform(1350,220,130,20);
+createPlatform(150,650,130,20,"red");
+createPlatform(115,520,150,20,"red");
+createPlatform(320,430,3,50,"red");
+createPlatform(385,350,130,20,"red");
+createPlatform(605,440,50,30,"red");
+createPlatform(970,440,130,20,"red");
+createPlatform(990,320,130,20,"red");
+createPlatform(1250,190,.1,100,"darkblue");
+createPlatform(1350,220,130,20,"red");
 
 
 
     // TODO 3 - Create Collectable
-createCollectable("steve",193,605);
-createCollectable("kennedi",1015,395)
-createCollectable("max",1360,180)
+createCollectable("ball",193,605);
+createCollectable("ja",1015,395)
+createCollectable("trophy",1360,180)
+
 
 
 
 
     
     // TODO 4 - Create Cannons
+createCannon("left",570,1200)
+createCannon("top",600,900)
+createCannon("top",1300,1000)
 
 
     

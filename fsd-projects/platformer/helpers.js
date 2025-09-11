@@ -340,9 +340,9 @@ function projectileCollision() {
       projectiles[i].x > canvas.width + 100 + projectiles[i].width ||
       projectiles[i].x < -100 - projectiles[i].width ||
       projectiles[i].y > canvas.height + 100 + projectiles[i].height ||
-      projectiles[i].y < -100 - projectiles[i].height
+      projectiles[i].y < -100 - projectiles[i].height 
     ) {
-      projectiles.splice(i, 1);
+      projectiles.splice(i,1);
     }
 
     if (i === projectiles.length) {
