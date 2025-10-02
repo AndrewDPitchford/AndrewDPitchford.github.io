@@ -83,8 +83,8 @@
 var positionX = 0
 var points = 0
 var speedX = 10
-var positionY;
-var speedY;
+var positionY = 0
+var speedY = 5
 
 
 
@@ -96,15 +96,20 @@ var speedY;
          */
         function update() { 
           moveBoxTo(positionX , positionY);
-          positionX += speed
+          positionX += speedX
+          positionY += speedY
        if (positionX + 70 > boardWidth) {
-       speed *= -1
+       speedX *= -1
 }
       if (positionX < 0) {
-        speed *= -1
+        speedX *= -1
       }
-        
-
+        if (positionY + 70 > boardHeight) {
+       speedY *= -1
+}
+ if (positionY < 0) {
+        speedY *= -1
+      }
           
         }
 
@@ -119,7 +124,8 @@ var speedY;
           positionX = 0
           changeBoxText(points)
           points += 1
-          speed = (3 * points) + 10
+          speedX = (3 * points) + 10
+           speedY = (3 * points) + 5
 
 
 
