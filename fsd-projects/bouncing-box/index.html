@@ -6,7 +6,7 @@
     <script src="jquery.min.js"></script>
     <style>
       .box {
-        border-radius: 100px;
+        border-radius: 300px;
         width: 70px;
         height: 70px;
         background-image: url("images/ball.png");
@@ -87,7 +87,7 @@ var speedX = 10
 var positionY = 0
 var speedY = 5
 var randNum = Math.random() * 100;
-var missClicks = 10
+var missClicks = 20
 
 
 
@@ -137,7 +137,7 @@ var missClicks = 10
           board.click = missClicks -= 1
           if (missClicks === 0){
            clearInterval(interval);
-           alert("YOU LOSE")
+           alert("YOU LOSE. Refresh to play again")
 }
         }
 
