@@ -84,6 +84,7 @@ background.addChild(moon);
 
             if (tree.x < -200) {
   tree.x = canvasWidth;
+  tree.y = ground.y
 }
             
             // TODO 4: Part 2 - Parallax
