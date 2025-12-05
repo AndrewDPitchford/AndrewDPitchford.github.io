@@ -24,17 +24,26 @@ var damageFromObstacle = 10;
 function createSawBlade(x, y){
   var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
     sawBladeHitZone.x = x;
-sawBladeHitZone.y = y;
-game.addGameItem(sawBladeHitZone);
-var obstacleImage = draw.bitmap("img/sawblade.png");
-sawBladeHitZone.addChild(obstacleImage);
-obstacleImage.x = x;
-obstacleImage.y = y;
-}
-createSawBlade(1000, 30)
-createSawBlade(900, 75)
-createSawBlade(800, 100)
-createSawBlade(700, 140)
+    sawBladeHitZone.y = y;
+    game.addGameItem(sawBladeHitZone);
+  var obstacleImage = draw.bitmap("img/sawblade.png");
+    sawBladeHitZone.addChild(obstacleImage);
+    obstacleImage.x = sawBladeHitZone.x - obstacleImage.width / 2;
+    obstacleImage.y = sawBladeHitZone.y - obstacleImage.width / 2;
+  }
+createSawBlade(1000, 200)
+createSawBlade(1200, 130)
+createSawBlade(1400, 250)
+createSawBlade(1700, 180)
+
+var enemy = game.createGameItem("enemy", 25);
+var redSquare = draw.rect(50, 50, "red");
+redSquare.x = -25;
+redSquare.y = -25;
+enemy.addChild(redSquare);
+enemy.x = 400;
+enemy.y = groundY - 50;
+game.addGameItem(enemy);
 
     function startLevel() {
       // TODO 13 goes below here
