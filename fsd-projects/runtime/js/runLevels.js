@@ -36,14 +36,52 @@ createSawBlade(1200, 130)
 createSawBlade(1400, 250)
 createSawBlade(1700, 180)
 
-var enemy = game.createGameItem("enemy", 25);
+
+function createEnemy(x, y) {
+  var enemy = game.createGameItem("enemy", 25);
 var redSquare = draw.rect(50, 50, "red");
-redSquare.x = -25;
-redSquare.y = -25;
+redSquare.x = x;
+redSquare.y = y;
 enemy.addChild(redSquare);
-enemy.x = 400;
-enemy.y = groundY - 50;
+enemy.x = x;
+enemy.y = y;
 game.addGameItem(enemy);
+enemy.velocityX = 1
+enemy.rotationalVelocity = 0
+enemy.onPlayerCollision = function () {
+  game.changeIntegrity(-10)
+};
+enemy.onProjectileCollision = function () {
+  game.increaseScore(100);
+enemy.fadeOut();
+};
+}
+createEnemy(200, 100);
+createEnemy(300, 50);
+createEnemy(500, 75);
+function createReward( ){
+
+function createReward(x, y) {
+  var reward = game.createGameItem("reward", 25);
+var purpleSquare = draw.rect(50, 50, "purple");
+purpleSquare.x = x;
+purpleSquare.y = y;
+reward.addChild(purpleSquare);
+reward.x = x;
+reward.y = y;
+game.addGameItem(reward);
+reward.velocityX = 0
+reward.rotationalVelocity = 0
+reward.onPlayerCollision = function () {
+  game.changeIntegrity(+10)
+};
+reward.onProjectileCollision = function () {
+  game.increaseScore(100);
+reward.fadeOut();
+};
+}
+createReward(400, 50)
+
 
     function startLevel() {
       // TODO 13 goes below here
@@ -70,4 +108,5 @@ if (
 ) {
   // here, export any references you need for tests //
   module.exports = runLevels;
+}
 }
