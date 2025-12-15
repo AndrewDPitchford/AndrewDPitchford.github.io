@@ -28,12 +28,12 @@ function createSawBlade(x, y){
     game.addGameItem(sawBladeHitZone);
   var obstacleImage = draw.bitmap("img/sawblade.png");
     sawBladeHitZone.addChild(obstacleImage);
-    obstacleImage.x = sawBladeHitZone.x - obstacleImage.width / 2;
-    obstacleImage.y = sawBladeHitZone.y - obstacleImage.width / 2;
+    obstacleImage.x = -25;
+    obstacleImage.y = -25;
   }
-createSawBlade(1000, 200)
+createSawBlade(1000, 180)
 createSawBlade(1200, 130)
-createSawBlade(1400, 250)
+createSawBlade(1400, 300)
 createSawBlade(1700, 180)
 
 
@@ -44,8 +44,8 @@ function createEnemy(x, y) {
     enemyHitZone.y = y;
 var redSquare = draw.rect(50, 50, "red");
 enemy.addChild(redSquare);
-enemy.x = enemyHitZone.x;
-enemy.y = enemyHitZone.y;
+enemy.x = enemyHitZone.x - 25;
+enemy.y = enemyHitZone.y - 25;
 game.addGameItem(enemy);
 enemy.velocityX = -1
 enemy.rotationalVelocity = 0
@@ -58,9 +58,9 @@ enemy.onProjectileCollision = function () {
 enemy.fadeOut();
 };
 }
-createEnemy(1000, 190);
-createEnemy(1700, 200);
-createEnemy(2100, 220);
+createEnemy(1000, 240);
+createEnemy(1700, 240);
+createEnemy(2400, 240);
 
 
 function createReward(x, y) {
@@ -70,8 +70,8 @@ var rewardHitZone = game.createObstacle(hitZoneSize);
     rewardHitZone.x = x;
     rewardHitZone.y = y;
 reward.addChild(greySquare);
-reward.x = rewardHitZone.x;
-reward.y = rewardHitZone.y;
+reward.x = rewardHitZone.x - 25;
+reward.y = rewardHitZone.y - 25;
 game.addGameItem(reward);
 reward.velocityX = -1
 reward.rotationalVelocity = 0
@@ -84,19 +84,19 @@ reward.onProjectileCollision = function () {
 reward.fadeOut();
 };
 }
-createReward(1900, 210)
-createReward(1500, 175)
-createReward(2300, 160)
+createReward(1900, 300)
+createReward(1500, 170)
+createReward(2300, 300)
 
 function createMarker(x, y) {
-var marker = game.createGameItem("marker", 25);
+var marker = game.createGameItem("marker", 50);
 var greenSquare = draw.rect(50, 100, "green");
 var markerHitZone = game.createObstacle(hitZoneSize);
     markerHitZone.x = x;
     markerHitZone.y = y;
 marker.addChild(greenSquare);
-marker.x = x;
-marker.y = y;
+marker.x = -50;
+marker.y = -50;
 game.addGameItem(marker);
 marker.velocityX = -1
 marker.rotationalVelocity = 0
@@ -114,7 +114,98 @@ createMarker(2500,200)
 
     function startLevel() {
       // TODO 13 goes below here
+var hitZoneSize = 25;
+var damageFromObstacle = 10;
 
+function createSawBlade(x, y){
+  var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+    sawBladeHitZone.x = x;
+    sawBladeHitZone.y = y;
+    game.addGameItem(sawBladeHitZone);
+  var obstacleImage = draw.bitmap("img/sawblade.png");
+    sawBladeHitZone.addChild(obstacleImage);
+    obstacleImage.x = -25;
+    obstacleImage.y = -25;
+  }
+createSawBlade(1000, 180)
+createSawBlade(1200, 130)
+createSawBlade(1400, 300)
+createSawBlade(1700, 180)
+
+
+function createEnemy(x, y) {
+  var enemy = game.createGameItem("enemy", 25);
+   var enemyHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+    enemyHitZone.x = x;
+    enemyHitZone.y = y;
+var redSquare = draw.rect(50, 50, "red");
+enemy.addChild(redSquare);
+enemy.x = enemyHitZone.x - 25;
+enemy.y = enemyHitZone.y - 25;
+game.addGameItem(enemy);
+enemy.velocityX = -1
+enemy.rotationalVelocity = 0
+enemy.onPlayerCollision = function () {
+  game.changeIntegrity(-10)
+  enemy.fadeOut()
+};
+enemy.onProjectileCollision = function () {
+  game.increaseScore(100);
+enemy.fadeOut();
+};
+}
+createEnemy(1000, 240);
+createEnemy(1700, 240);
+createEnemy(2400, 240);
+
+
+function createReward(x, y) {
+  var reward = game.createGameItem("reward", 25);
+var greySquare = draw.rect(50, 50, "grey");
+var rewardHitZone = game.createObstacle(hitZoneSize);
+    rewardHitZone.x = x;
+    rewardHitZone.y = y;
+reward.addChild(greySquare);
+reward.x = rewardHitZone.x - 25;
+reward.y = rewardHitZone.y - 25;
+game.addGameItem(reward);
+reward.velocityX = -1
+reward.rotationalVelocity = 0
+reward.onPlayerCollision = function () {
+  game.changeIntegrity(+10)
+  reward.fadeOut()
+};
+reward.onProjectileCollision = function () {
+  game.increaseScore(100);
+reward.fadeOut();
+};
+}
+createReward(1900, 300)
+createReward(1500, 170)
+createReward(2300, 300)
+
+function createMarker(x, y) {
+var marker = game.createGameItem("marker", 50);
+var greenSquare = draw.rect(50, 100, "green");
+var markerHitZone = game.createObstacle(hitZoneSize);
+    markerHitZone.x = x;
+    markerHitZone.y = y;
+marker.addChild(greenSquare);
+marker.x = markerHitZone.x - 25;
+marker.y = markerHitZone.y - 25;
+game.addGameItem(marker);
+marker.velocityX = -1
+marker.rotationalVelocity = 0
+marker.onPlayerCollision = function () {
+   startLevel()
+   marker.fadeOut()
+};
+marker.onProjectileCollision = function () {
+  startLevel()
+marker.fadeOut();
+};
+}
+createMarker(2500,200)
 
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
@@ -137,4 +228,6 @@ if (
   // here, export any references you need for tests //
   module.exports = runLevels;
 }
-
+if (marker.fadeout === true){
+  startLevel()
+}
