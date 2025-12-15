@@ -114,7 +114,10 @@ createMarker(2500,200)
 
     function startLevel() {
       // TODO 13 goes below here
-
+var level = {
+  level: levelData[currentLevel]
+}
+var levelObjects = 
 
 
       //////////////////////////////////////////////
